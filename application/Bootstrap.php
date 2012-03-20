@@ -2,6 +2,16 @@
 
 class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 {
+
+    public function _initDbAdapter() {
+        $this->bootstrap('db');
+        $db = $this->getResource('db');
+        // Maak een soort global variabele aan
+        Zend_Registry::set('db', $db);
+        
+        // Waar nodig (indien gebruik gemaakt van model van DB niet nodig)
+        // $db = Zend_Registry::get('db');
+    }
     
     public function _initView()
     {
@@ -12,16 +22,15 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         $this->bootstrap('layout');
         $layout = $this->getResource('layout');
         $layout->setLayout('layout');
-        
-        $container = new Zend_Navigation();
-        // maken van de navigatie
-        $urls = array(
-            array('label' => 'Services', 'action' => 'index', 'controller' => 'services', 'class' => 'button-1', 'params' => array()),
-            array('label' => 'Solutions', 'action' => 'index', 'controller' => 'solutions', 'class' => 'button-2', 'params' => array()),
-            array('label' => 'Careers', 'action' => 'index', 'controller' => 'careers', 'class' => 'button-3', 'params' => array()),
-            array('label' => 'Success', 'action' => 'index', 'controller' => 'success', 'class' => 'button-4', 'params' => array()),
-            array('label' => 'Contact', 'action' => 'index', 'controller' => 'contact', 'class' => 'button-5', 'params' => array()),
-        );
+
+        $container = new Zend_Navigation(); // maken van de navigatie
+
+        $db = Zend_Registry::get('db');
+        $pages = $db->fetchAll("SELECT * FROM page, pageLang WHERE page.status = 'active' AND page.pageID = pageLang.pageFK ORDER BY page.pageID ASC");
+        $urls = array();
+        foreach($pages as $page) {
+            $urls[] = array('label' => $page['titel'], 'action' => 'index', 'controller' => 'page', 'class' => '', 'params' => array('id' => $page['pageLangID']));
+        }
         
         foreach($urls as $url) {
             $page = new Zend_Navigation_Page_Mvc(array(
@@ -41,16 +50,6 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         $view->navigation($container);
         
         //return $container;
-    }
-
-    public function _initDbAdapter() {
-        $this->bootstrap('db');
-        $db = $this->getResource('db');
-        // Maak een soort global variabele aan
-        Zend_Registry::set('db', $db);
-        
-        // Waar nodig (indien gebruik gemaakt van model van DB niet nodig)
-        // $db = Zend_Registry::get('db');
     }
 
 }

@@ -10,7 +10,13 @@ class PageController extends Zend_Controller_Action
 
     public function indexAction()
     {
-        // action body
+        $id = $this->_getParam('id');
+        
+        $db = Zend_Registry::get('db');
+        $page = reset($db->fetchAll("SELECT * FROM pageLang pageLang WHERE pageLangID = " . $id));
+        
+        $this->view->title = $page['titel'];
+        $this->view->content = $page['content'];
     }
 
     public function addAction() {

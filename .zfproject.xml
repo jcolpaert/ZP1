@@ -18,6 +18,7 @@
       </controllersDirectory>
       <formsDirectory>
         <formFile formName="Page"/>
+        <formFile formName="Test"/>
       </formsDirectory>
       <layoutsDirectory>
         <layoutScriptsDirectory>

@@ -7,12 +7,14 @@ class IndexController extends Zend_Controller_Action
     {
         $id = $this->_getParam('id');
         
-        $pageLangTable = new Application_Model_PageLang();
-        $page = $pageLangTable->find($id)->current();
-        $page = reset($page);
-        
-        $this->view->title = $page['titel'];
-        $this->view->content = $page['content'];
+        if(is_numeric($id)) {
+            $pageLangTable = new Application_Model_PageLang();
+            $page = $pageLangTable->find($id)->current();
+            $page = reset($page);
+
+            $this->view->title = $page['titel'];
+            $this->view->content = $page['content'];
+        }
     }
 
     public function indexAction()

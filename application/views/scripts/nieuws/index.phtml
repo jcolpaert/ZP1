@@ -1,0 +1,9 @@
+<h1><?php echo $this->title; ?></h1>
+<h1><?php echo $this->content; ?></h1>
+
+<?php foreach($this->nieuws as $bericht) { ?>
+<div class="newsItem">
+    <h2><?php echo $bericht['titel']; ?> (<?php echo $bericht['datum']; ?>)</h2>
+    <p><?php echo $bericht['omschrijving']; ?></p>
+</div>
+<?php } ?>

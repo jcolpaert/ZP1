@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Machine: localhost
--- Genereertijd: 20 Mar 2012 om 20:16
+-- Genereertijd: 20 Mar 2012 om 20:30
 -- Serverversie: 5.5.9
 -- PHP-Versie: 5.3.6
 
@@ -36,6 +36,29 @@ INSERT INTO `language` VALUES(1, 'nl', 'UTF-8');
 -- --------------------------------------------------------
 
 --
+-- Tabelstructuur voor tabel `nieuws`
+--
+
+DROP TABLE IF EXISTS `nieuws`;
+CREATE TABLE IF NOT EXISTS `nieuws` (
+  `id` tinyint(4) NOT NULL AUTO_INCREMENT,
+  `titel` varchar(150) COLLATE utf8_bin NOT NULL,
+  `omschrijving` text COLLATE utf8_bin NOT NULL,
+  `datum` date NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=4 ;
+
+--
+-- Gegevens worden uitgevoerd voor tabel `nieuws`
+--
+
+INSERT INTO `nieuws` VALUES(1, 'Nieuwsbericht 1', 0x4c6f72656d20697073756d20646f6c6f722073697420616d65742e, '2012-03-08');
+INSERT INTO `nieuws` VALUES(2, 'Nieuwsbericht 2', 0x4c6f72656d20697073756d2e, '2012-03-09');
+INSERT INTO `nieuws` VALUES(3, 'Nieuwsbericht 3', 0x4c6f72656d20697073756d20646f6c6f722e, '2012-03-06');
+
+-- --------------------------------------------------------
+
+--
 -- Tabelstructuur voor tabel `page`
 --
 
@@ -46,7 +69,7 @@ CREATE TABLE IF NOT EXISTS `page` (
   `status` enum('active','inactive') DEFAULT NULL,
   `pageFK` int(11) DEFAULT NULL,
   PRIMARY KEY (`pageID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
 -- Gegevens worden uitgevoerd voor tabel `page`
@@ -55,6 +78,7 @@ CREATE TABLE IF NOT EXISTS `page` (
 INSERT INTO `page` VALUES(1, '2012-03-20 19:14:08', 'active', 1);
 INSERT INTO `page` VALUES(2, '2012-03-20 19:15:54', 'active', 2);
 INSERT INTO `page` VALUES(3, '2012-03-20 20:13:14', 'active', 3);
+INSERT INTO `page` VALUES(4, '2012-03-20 20:19:48', 'active', 4);
 
 -- --------------------------------------------------------
 
@@ -84,6 +108,7 @@ CREATE TABLE IF NOT EXISTS `pageLang` (
 INSERT INTO `pageLang` VALUES(1, 'Home', 'Home teaser', 'Lorem ipsum dolor sit amet.', 'index', 'index', 1, 1);
 INSERT INTO `pageLang` VALUES(2, 'Over', 'Over baseline', 'Lorem ipsum dolor sit amet.', 'page', 'index', 2, 1);
 INSERT INTO `pageLang` VALUES(3, 'Contact', 'Contact ons voor meer informatie', 'Lorem ipsum dolor sit amet amai mijne frak.', 'page', 'contact', 3, 1);
+INSERT INTO `pageLang` VALUES(4, 'Nieuws', 'Alle nieuwtjes', 'Lees hier alle nieuwtjes.', 'nieuws', 'index', 4, 1);
 
 --
 -- Beperkingen voor gedumpte tabellen

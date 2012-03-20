@@ -17,6 +17,11 @@
     margin: 0px;
 }
 
+nav h2, section h2
+{
+    display: none;
+}
+
 header
 {
     display: block;
@@ -28,6 +33,12 @@ header
 {
     width: 960px;
     margin: 0 auto;
+}
+
+
+.navigation
+{
+    clear: both;
 }
 
 .navigation li

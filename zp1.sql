@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Machine: localhost
--- Genereertijd: 20 Mar 2012 om 19:55
+-- Genereertijd: 20 Mar 2012 om 20:16
 -- Serverversie: 5.5.9
 -- PHP-Versie: 5.3.6
 
@@ -46,7 +46,7 @@ CREATE TABLE IF NOT EXISTS `page` (
   `status` enum('active','inactive') DEFAULT NULL,
   `pageFK` int(11) DEFAULT NULL,
   PRIMARY KEY (`pageID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Gegevens worden uitgevoerd voor tabel `page`
@@ -54,6 +54,7 @@ CREATE TABLE IF NOT EXISTS `page` (
 
 INSERT INTO `page` VALUES(1, '2012-03-20 19:14:08', 'active', 1);
 INSERT INTO `page` VALUES(2, '2012-03-20 19:15:54', 'active', 2);
+INSERT INTO `page` VALUES(3, '2012-03-20 20:13:14', 'active', 3);
 
 -- --------------------------------------------------------
 
@@ -82,6 +83,7 @@ CREATE TABLE IF NOT EXISTS `pageLang` (
 
 INSERT INTO `pageLang` VALUES(1, 'Home', 'Home teaser', 'Lorem ipsum dolor sit amet.', 'index', 'index', 1, 1);
 INSERT INTO `pageLang` VALUES(2, 'Over', 'Over baseline', 'Lorem ipsum dolor sit amet.', 'page', 'index', 2, 1);
+INSERT INTO `pageLang` VALUES(3, 'Contact', 'Contact ons voor meer informatie', 'Lorem ipsum dolor sit amet amai mijne frak.', 'page', 'contact', 3, 1);
 
 --
 -- Beperkingen voor gedumpte tabellen

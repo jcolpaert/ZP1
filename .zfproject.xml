@@ -27,6 +27,7 @@
       </layoutsDirectory>
       <modelsDirectory>
         <modelFile modelName="Page"/>
+        <modelFile modelName="PageLang"/>
       </modelsDirectory>
       <modulesDirectory enabled="false"/>
       <viewsDirectory>

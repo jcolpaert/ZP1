@@ -5,7 +5,14 @@ class IndexController extends Zend_Controller_Action
 
     public function init()
     {
-        /* Initialize action controller here */
+        $id = $this->_getParam('id');
+        
+        $pageLangTable = new Application_Model_PageLang();
+        $page = $pageLangTable->find($id)->current();
+        $page = reset($page);
+        
+        $this->view->title = $page['titel'];
+        $this->view->content = $page['content'];
     }
 
     public function indexAction()

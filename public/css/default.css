@@ -17,9 +17,28 @@
     margin: 0px;
 }
 
+header
+{
+    display: block;
+    clear: both;
+    width: 960px;
+}
+
 #mainWrapper
 {
     width: 960px;
     margin: 0 auto;
 }
 
+.navigation li
+{
+    display: inline;
+    float: left;
+}
+
+.navigation a
+{
+    padding: 10px;
+    color: black;
+    text-decoration: none;
+}

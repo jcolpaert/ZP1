@@ -11,6 +11,11 @@
    Syntax recommendation http://www.w3.org/TR/REC-CSS2/
 */
 
+body, html
+{
+    font-family: Arial;
+}
+
 *
 {
     padding: 0px;
@@ -27,6 +32,12 @@ header
     display: block;
     clear: both;
     width: 960px;
+}
+
+header h1
+{
+    margin: 20px 0;
+    text-transform: uppercase;
 }
 
 #mainWrapper
@@ -66,7 +77,7 @@ section
 {
     float: left;
     width: 680px;
-    padding: 20px 20px 0 0;
+    padding: 20px 20px 20px 0;
     border-right: 1px solid #ccc;
 }
 
@@ -82,8 +93,23 @@ footer
 {
     float: left;
     clear: both;
-    margin-top: 40px;
     border-top: 1px solid #ccc;
     width: 960px;
     padding-top: 20px;
+    text-transform: uppercase;
+}
+
+.newsItem h2{
+    font-size: 16px;
+}
+
+.newsItem
+{
+    border-bottom: 1px solid #ccc;
+    padding: 20px 0;
+}
+
+article h1{
+    text-transform: uppercase;
+    font-size: 18px;
 }

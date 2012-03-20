@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Machine: localhost
--- Genereertijd: 20 Mar 2012 om 19:47
+-- Genereertijd: 20 Mar 2012 om 19:55
 -- Serverversie: 5.5.9
 -- PHP-Versie: 5.3.6
 
@@ -67,6 +67,8 @@ CREATE TABLE IF NOT EXISTS `pageLang` (
   `titel` varchar(255) DEFAULT NULL,
   `teaser` varchar(255) DEFAULT NULL,
   `content` text,
+  `controller` varchar(25) NOT NULL,
+  `action` varchar(25) NOT NULL,
   `pageFK` int(11) DEFAULT NULL COMMENT '		',
   `languageFK` int(11) NOT NULL,
   PRIMARY KEY (`pageLangID`),
@@ -78,8 +80,8 @@ CREATE TABLE IF NOT EXISTS `pageLang` (
 -- Gegevens worden uitgevoerd voor tabel `pageLang`
 --
 
-INSERT INTO `pageLang` VALUES(1, 'Home', 'Home teaser', 'Lorem ipsum dolor sit amet.', 1, 1);
-INSERT INTO `pageLang` VALUES(2, 'Over', 'Over baseline', 'Lorem ipsum dolor sit amet.', 2, 1);
+INSERT INTO `pageLang` VALUES(1, 'Home', 'Home teaser', 'Lorem ipsum dolor sit amet.', 'index', 'index', 1, 1);
+INSERT INTO `pageLang` VALUES(2, 'Over', 'Over baseline', 'Lorem ipsum dolor sit amet.', 'page', 'index', 2, 1);
 
 --
 -- Beperkingen voor gedumpte tabellen

@@ -29,7 +29,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         $pages = $db->fetchAll("SELECT * FROM page, pageLang WHERE page.status = 'active' AND page.pageID = pageLang.pageFK ORDER BY page.pageID ASC");
         $urls = array();
         foreach($pages as $page) {
-            $urls[] = array('label' => $page['titel'], 'action' => 'index', 'controller' => 'page', 'class' => '', 'params' => array('id' => $page['pageLangID']));
+            $urls[] = array('label' => $page['titel'], 'action' => $page['action'], 'controller' => $page['controller'], 'class' => '', 'params' => array('id' => $page['pageLangID']));
         }
         
         foreach($urls as $url) {

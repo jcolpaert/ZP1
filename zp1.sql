@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Machine: localhost
--- Genereertijd: 13 Mar 2012 om 21:40
+-- Genereertijd: 20 Mar 2012 om 19:47
 -- Serverversie: 5.5.9
 -- PHP-Versie: 5.3.6
 
@@ -25,12 +25,13 @@ CREATE TABLE IF NOT EXISTS `language` (
   `name` varchar(50) DEFAULT NULL,
   `charset` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`languageID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
 -- Gegevens worden uitgevoerd voor tabel `language`
 --
 
+INSERT INTO `language` VALUES(1, 'nl', 'UTF-8');
 
 -- --------------------------------------------------------
 
@@ -45,12 +46,14 @@ CREATE TABLE IF NOT EXISTS `page` (
   `status` enum('active','inactive') DEFAULT NULL,
   `pageFK` int(11) DEFAULT NULL,
   PRIMARY KEY (`pageID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Gegevens worden uitgevoerd voor tabel `page`
 --
 
+INSERT INTO `page` VALUES(1, '2012-03-20 19:14:08', 'active', 1);
+INSERT INTO `page` VALUES(2, '2012-03-20 19:15:54', 'active', 2);
 
 -- --------------------------------------------------------
 
@@ -75,6 +78,8 @@ CREATE TABLE IF NOT EXISTS `pageLang` (
 -- Gegevens worden uitgevoerd voor tabel `pageLang`
 --
 
+INSERT INTO `pageLang` VALUES(1, 'Home', 'Home teaser', 'Lorem ipsum dolor sit amet.', 1, 1);
+INSERT INTO `pageLang` VALUES(2, 'Over', 'Over baseline', 'Lorem ipsum dolor sit amet.', 2, 1);
 
 --
 -- Beperkingen voor gedumpte tabellen
